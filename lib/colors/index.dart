@@ -152,4 +152,13 @@ class ColorTheme {
     this.color = this.color ?? ColorPreset.gray.color;
     this.textColor = this.textColor ?? ColorPreset.gray.textColor;
   }
+  ColorTheme tinge (ColorTheme theme) {
+    double ratio = 1.5;
+    return ColorTheme(
+      textColor: theme.color,
+      color: theme.color.withOpacity(0.2)
+    );
+  }
 }  
+
+

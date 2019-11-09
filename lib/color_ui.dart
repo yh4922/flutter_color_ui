@@ -8,3 +8,6 @@ export './button/index.dart';
 
 // ColorIcons
 export './icon/index.dart';
+
+// ColorGrid
+export './grid/index.dart';
