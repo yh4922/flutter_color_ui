@@ -4,7 +4,6 @@ import 'package:color_ui/utils.dart';
 
 import './flex_layout.dart';
 import './grid_layout.dart';
-import './assist_layout.dart';
 
 class TabsBtn extends StatelessWidget {
   String title;
@@ -51,15 +50,15 @@ class _LayoutPagesState extends State<LayoutPages> with SingleTickerProviderStat
   @override
   void initState() {
     // TODO: implement initState
-    tabStatus = [true, false, false];
+    tabStatus = [true, false];
     tabController = new TabController(
       initialIndex: 0,
-      length: 3,
+      length: 2,
       vsync: this,
     );
     tabController.addListener(() {
       setState(() {
-        tabStatus = [false, false, false];
+        tabStatus = [false, false];
         tabStatus[tabController.index] = true;
       });
     });
@@ -87,10 +86,7 @@ class _LayoutPagesState extends State<LayoutPages> with SingleTickerProviderStat
                 }),
                 TabsBtn('Grid布局', tabStatus[1], onTap: () {
                   tabController.animateTo(1, duration: Duration(milliseconds: 200));
-                }),
-                TabsBtn('辅助布局', tabStatus[2], onTap: () {
-                  tabController.animateTo(2, duration: Duration(milliseconds: 200));
-                }),
+                })
               ],
             ),
           ),
@@ -99,8 +95,7 @@ class _LayoutPagesState extends State<LayoutPages> with SingleTickerProviderStat
               controller: tabController  ,
               children: <Widget>[
                 FlexLayout(),
-                GridLayout(),
-                AssistLayout()
+                GridLayout()
               ],
             )
           )
